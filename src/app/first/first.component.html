@@ -1,5 +1,12 @@
 <p>Je suis {{ name }}, j'ai {{ age }} ans </p>
 
-<div [hidden]="show" [style.backgroundColor]="color"> 2eme DMWM </div>
+<div [hidden]="show" [style.backgroundColor]="Firstcolor"> 2eme DMWM </div>
+
+<input [(ngModel)]="name" type="text">
 
 <button (click)="traitement()">Click me</button>
+
+<button class="btn btn-primary">Ok </button>
+
+<app-child (msgToParent)="traitementDuParent($event)" [color]="Firstcolor"></app-child>
+<!-- <app-child [color]="'red'"></app-child> -->

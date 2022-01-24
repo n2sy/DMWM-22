@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class FirstComponent implements OnInit {
   name: string = 'Oussama';
   age: number = 33;
-  color = 'pink';
+  Firstcolor = 'grey';
   show = false;
   constructor() {}
 
@@ -16,5 +16,9 @@ export class FirstComponent implements OnInit {
 
   traitement() {
     alert("J'ai été clické");
+  }
+
+  traitementDuParent(msg) {
+    alert(msg);
   }
 }

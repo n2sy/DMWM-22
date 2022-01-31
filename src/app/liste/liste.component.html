@@ -1,5 +1,5 @@
 <ol class="list-group">
-    <app-item></app-item>
-    <app-item></app-item>
-    <app-item></app-item>
+    <app-item (msgToList)="sendToCv($event)" [cand]="candidates[0]"></app-item>
+    <app-item (msgToList)="sendToCv($event)" [cand]="candidates[1]"></app-item>
+    <app-item (msgToList)="sendToCv($event)" [cand]="candidates[2]"></app-item>
 </ol>

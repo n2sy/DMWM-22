@@ -2,18 +2,17 @@
     <div class="card">
         <div class="front">
             <div class="cover">
-                <img src="images/rotating_card_thumb3.png" />
+                <img src="assets/rotating_card_thumb2.png" />
             </div>
             <div class="user">
-                <img class="img-circle" src="images/rotating_card_profile.png" />
+                <img class="img-circle" src="assets/{{candidatSelected.avatar}}" />
             </div>
             <div class="content">
                 <div class="main">
-                    <h3 class="name">Inna Corman</h3>
-                    <p class="profession">Product Manager</p>
+                    <h3 class="name">{{ candidatSelected.prenom }} {{ candidatSelected.nom }} </h3>
+                    <p class="profession">{{ candidatSelected.profession }} </p>
 
-                    <p class="text-center">"I'm the new Sinatra, and since I made it here I can make it anywhere, yeah,
-                        they love me everywhere"</p>
+                    <p class="text-center">{{ candidatSelected.age }} ans </p>
                 </div>
                 <div class="footer">
                     <div class="rating">

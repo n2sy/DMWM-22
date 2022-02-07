@@ -1,0 +1,10 @@
+<div class="nidhal">
+    <strong> {{ accSelected.name }} </strong>
+    <br>
+    <hr>
+    <br>
+    <p>This account is {{ accSelected.status }} </p>
+    <button (click)="setTo('active')" class="btn btn-success">Set to active</button>
+    <button (click)="setTo('inactive')" class="btn btn-danger">Set to inactive</button>
+    <button (click)="setTo('unknown')" class="btn btn-info">Set to unknown</button>
+</div>

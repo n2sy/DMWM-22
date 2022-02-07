@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <app-addaccount (msgToHome)="recupNewAccount($event)"></app-addaccount>
+
+            <app-infoaccount *ngFor="let acc of listAccounts" [accSelected]="acc"></app-infoaccount>
+
+        </div>
+    </div>
+</div>

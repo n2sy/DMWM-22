@@ -19,6 +19,9 @@ export class CvComponent implements OnInit, AfterViewInit, AfterContentInit {
     new Candidat(1, 'Nidhal', 'Jelassi', 38, 'Enseignant', 'nidhal.jpg'),
     new Candidat(2, 'Homer', 'Simpson', 58, 'Plombier', 'homer.jpg'),
     new Candidat(3, 'Bart', 'Simpson', 38, 'Eleve', 'bart.jpeg'),
+    new Candidat(1, 'Nidhal', 'Jelassi', 38, 'Enseignant', 'nidhal.jpg'),
+    new Candidat(2, 'Homer', 'Simpson', 58, 'Plombier', 'homer.jpg'),
+    new Candidat(3, 'Bart', 'Simpson', 38, 'Eleve', 'bart.jpeg'),
   ];
   @ViewChild('inputName', { static: true }) inpName;
   @ContentChild('paragraphe') parag;

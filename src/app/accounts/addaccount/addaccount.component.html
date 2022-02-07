@@ -1,0 +1,16 @@
+<div>
+    <label>Name</label>
+    <input #n type="text" class="form-control">
+
+    <label>Status</label>
+    <select #s class="form-control">
+        <option *ngFor="let st of listStatus" value="{{st}}" [value]="st">{{ st }}</option>
+        <!-- <option *ngFor="let st of listStatus" value="{{st}}">{{ st }}</option> -->
+    </select>
+    <!-- <select class="form-control">
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+        <option value="unknown">Unknown</option>
+    </select> -->
+    <button (click)="ajouterAccount(n.value, s.value)" class="btn btn-primary">Add Account</button>
+</div>

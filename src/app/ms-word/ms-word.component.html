@@ -1,0 +1,25 @@
+<div class="container">
+    <div [ngStyle]="{
+        backgroundColor : bgColor,
+        color : textColor,
+        fontSize : taille,
+        fontFamily : police
+    }
+    ">Cours Framework JS avec DMWM !</div>
+
+    <label for="">Background Color</label>
+    <input type="text" class="form-control" [(ngModel)]="bgColor">
+    <label for="">Text Color</label>
+    <input type="text" class="form-control" [(ngModel)]="textColor">
+
+    <label for="">Font Size</label>
+    <input #sz (keyup)="setSize(sz.value)" type="number" class="form-control">
+
+    <label for="">Font Family</label>
+    <select class="form-control" [(ngModel)]="police">
+        <option value=""></option>
+        <option value="phosphate">Phosphate</option>
+        <option value="arial">Arial</option>
+        <option value="futura">Futura</option>
+    </select>
+</div>

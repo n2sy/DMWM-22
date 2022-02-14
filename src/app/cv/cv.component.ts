@@ -16,12 +16,9 @@ import { Candidat } from '../models/candidat';
 export class CvComponent implements OnInit, AfterViewInit, AfterContentInit {
   selectedCandidat: Candidat;
   tabCandidats: Candidat[] = [
-    new Candidat(1, 'Nidhal', 'Jelassi', 38, 'Enseignant', 'nidhal.jpg'),
-    new Candidat(2, 'Homer', 'Simpson', 58, 'Plombier', 'homer.jpg'),
-    new Candidat(3, 'Bart', 'Simpson', 38, 'Eleve', 'bart.jpeg'),
-    new Candidat(1, 'Nidhal', 'Jelassi', 38, 'Enseignant', 'nidhal.jpg'),
-    new Candidat(2, 'Homer', 'Simpson', 58, 'Plombier', 'homer.jpg'),
-    new Candidat(3, 'Bart', 'Simpson', 38, 'Eleve', 'bart.jpeg'),
+    new Candidat(1, 'Nidhal', 'jelassi', 38, 'Enseignant', 'nidhal.jpg'),
+    new Candidat(2, 'Homer', 'simpson', 58, 'Plombier', 'homer.jpg'),
+    new Candidat(3, 'Bart', 'Simpson', 38, 'Eleve'),
   ];
   @ViewChild('inputName', { static: true }) inpName;
   @ContentChild('paragraphe') parag;

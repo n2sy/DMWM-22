@@ -18,9 +18,29 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
 import { CustomDirDirective } from './custom-dir.directive';
 import { ShortPipe } from './short.pipe';
 import { FilterPipe } from './filter.pipe';
+import { DefaultimagePipe } from './defaultimage.pipe';
+import { FirstService } from './services/first.service';
 
 @NgModule({
-  declarations: [AppComponent, FirstComponent, ChildComponent, CvComponent, ListeComponent, ItemComponent, DetailsComponent, HomeaccountComponent, InfoaccountComponent, AddaccountComponent, DirectComponent, MsWordComponent, ManageServersComponent, CustomDirDirective, ShortPipe, FilterPipe],
+  declarations: [
+    AppComponent,
+    FirstComponent,
+    ChildComponent,
+    CvComponent,
+    ListeComponent,
+    ItemComponent,
+    DetailsComponent,
+    HomeaccountComponent,
+    InfoaccountComponent,
+    AddaccountComponent,
+    DirectComponent,
+    MsWordComponent,
+    ManageServersComponent,
+    CustomDirDirective,
+    ShortPipe,
+    FilterPipe,
+    DefaultimagePipe,
+  ],
   imports: [BrowserModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

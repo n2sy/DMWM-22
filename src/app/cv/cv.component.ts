@@ -7,38 +7,47 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { FirstService } from '../services/first.service';
+import { ListCandidatsService } from '../services/list-candidats.service';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css'],
+  providers: [FirstService],
 })
 export class CvComponent implements OnInit, AfterViewInit, AfterContentInit {
   selectedCandidat: Candidat;
-  tabCandidats: Candidat[] = [
-    new Candidat(1, 'Nidhal', 'jelassi', 38, 'Enseignant', 'nidhal.jpg'),
-    new Candidat(2, 'Homer', 'simpson', 58, 'Plombier', 'homer.jpg'),
-    new Candidat(3, 'Bart', 'Simpson', 38, 'Eleve'),
-  ];
+  tabCandidats: Candidat[] = [];
   @ViewChild('inputName', { static: true }) inpName;
   @ContentChild('paragraphe') parag;
 
-  constructor() {
+  constructor(
+    private firstSer: FirstService,
+    private listCand: ListCandidatsService
+  ) {
     //console.log('Constructor');
   }
   ngAfterContentInit(): void {
-    console.log(this.parag);
+    //console.log(this.parag);
   }
 
   ngOnInit(): void {
     // console.log('ngOnInit');
-    console.log(this.parag);
+    this.firstSer.showMsg();
+    this.tabCandidats = this.listCand.getAllCandidats();
+  }
+
+  addCandidat() {
+    this.listCand.addCandidat(
+      new Candidat(2, 'New', 'Candidat', 58, 'Plombier', 'homer.jpg')
+    );
+    console.log(this.listCand.getAllCandidats());
   }
 
   ngAfterViewInit(): void {
-    console.log('xxxxxx');
-
-    console.log(this.parag);
+    // console.log('xxxxxx');
+    //console.log(this.parag);
   }
 
   sendToDetails(myCandidat) {

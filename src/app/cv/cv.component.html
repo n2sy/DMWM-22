@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <app-liste (msgToCv)="sendToDetails($event)" [candidates]="tabCandidats"></app-liste>
+            <app-liste (msgToCv)="sendToDetails($event)"></app-liste>
         </div>
         <div class="col-md-7">
             <app-details [candidatSelected]="selectedCandidat"></app-details>
@@ -13,3 +13,5 @@
 {{ inputName.value }}
 <button class="btn btn-danger" (click)="checkButton(inputName)">Check</button>
 <ng-content></ng-content> -->
+
+<button class="btn btn-danger" (click)="addCandidat()">Add New Candidate</button>

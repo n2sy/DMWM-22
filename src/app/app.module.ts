@@ -21,6 +21,10 @@ import { FilterPipe } from './filter.pipe';
 import { DefaultimagePipe } from './defaultimage.pipe';
 import { FirstService } from './services/first.service';
 import { RecruterComponent } from './recruter/recruter.component';
+import { HomeComponent } from './home/home.component';
+import { DMWMW_ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
 
 @NgModule({
   declarations: [
@@ -42,8 +46,11 @@ import { RecruterComponent } from './recruter/recruter.component';
     FilterPipe,
     DefaultimagePipe,
     RecruterComponent,
+    HomeComponent,
+    NavbarComponent,
+    InfosComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, DMWMW_ROUTING],
   providers: [],
   bootstrap: [AppComponent],
 })

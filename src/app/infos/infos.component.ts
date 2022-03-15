@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, ParamMap, Params } from '@angular/router';
 
 @Component({
   selector: 'app-infos',
@@ -7,14 +7,27 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./infos.component.css'],
 })
 export class InfosComponent implements OnInit {
+  id: any;
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe({
-      next: (p: Params) => {
-        console.log(p['id']);
-        console.log(p['nom']);
-        console.log(p['age']);
+    //V1
+    // this.id = this.activatedRoute.snapshot.params['id'];
+    // console.log(this.id);
+
+    //V2
+    // this.activatedRoute.params.subscribe({
+    //   next: (p: Params) => {
+    //     this.id = p['id'];
+    //     console.log(p['id']);
+    //   },
+    // });
+
+    //V3
+    this.activatedRoute.paramMap.subscribe({
+      next: (p: ParamMap) => {
+        this.id = p.get('id');
+        console.log(this.id);
       },
     });
   }

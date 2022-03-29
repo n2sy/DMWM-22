@@ -16,7 +16,7 @@ const myRoutes: Routes = [
       { path: '', component: CvComponent },
       { path: 'add', component: AddComponent },
       { path: ':id', component: InfosComponent },
-      { path: 'edit/:id', component: EditComponent },
+      { path: ':id/edit', component: EditComponent },
     ],
   },
   { path: 'servers', component: ManageServersComponent },

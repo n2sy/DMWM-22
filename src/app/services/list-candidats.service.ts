@@ -19,4 +19,8 @@ export class ListCandidatsService {
   addCandidat(newC) {
     this.tabCandidats.push(newC);
   }
+
+  getCandidatById(_id) {
+    return this.tabCandidats.find((c) => c.id == _id);
+  }
 }

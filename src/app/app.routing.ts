@@ -12,9 +12,8 @@ const myRoutes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'cv',
-    component: CvComponent,
     children: [
-      //  { path: '', component: CvComponent },
+      { path: '', component: CvComponent },
       { path: 'add', component: AddComponent },
       { path: ':id', component: InfosComponent },
       { path: 'edit/:id', component: EditComponent },

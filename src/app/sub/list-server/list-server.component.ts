@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ServeursService } from '../serveurs.service';
 
 @Component({
   selector: 'app-list-server',
   templateUrl: './list-server.component.html',
-  styleUrls: ['./list-server.component.css']
+  styleUrls: ['./list-server.component.css'],
 })
 export class ListServerComponent implements OnInit {
-
-  constructor() { }
+  tabServeurs = [];
+  constructor(private serService: ServeursService) {}
 
   ngOnInit(): void {
+    this.tabServeurs = this.serService.tabServeurs;
   }
-
 }

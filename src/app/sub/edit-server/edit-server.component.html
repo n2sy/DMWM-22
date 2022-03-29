@@ -1,0 +1,12 @@
+<div>
+    <label for="nom">Nom du Serveur</label>
+    <input [(ngModel)]="selectedServeur.nom" id="nom" type="text" class="form-control">
+
+    <label for="status">Statut du serveur</label>
+    <select [(ngModel)]="selectedServeur.status" class="form-control" id="status">
+        <option value="offline">Offline</option>
+        <option value="online">Online</option>
+    </select>
+    <br>
+    <button class="btn btn-success">Valider</button>
+</div>

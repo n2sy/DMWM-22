@@ -28,6 +28,8 @@ import { InfosComponent } from './infos/infos.component';
 import { EditComponent } from './edit/edit.component';
 import { AddComponent } from './add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SubModule } from './sub/sub.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +57,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     EditComponent,
     AddComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, FormsModule, DMWMW_ROUTING],
+  imports: [BrowserModule, FormsModule, SubModule, DMWMW_ROUTING],
   providers: [],
   bootstrap: [AppComponent],
 })

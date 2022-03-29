@@ -1,0 +1,7 @@
+<div>
+    <form #f="ngForm">
+        <input ngModel required type="text" class="form-control" name="login">
+        <input ngModel type="text" class="form-control" name="mdp">
+        <button (click)="submitHandler(f)">Submit</button>
+    </form>
+</div>

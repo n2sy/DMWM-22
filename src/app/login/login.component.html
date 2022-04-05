@@ -1,7 +1,43 @@
-<div>
-    <form #f="ngForm">
-        <input ngModel required type="text" class="form-control" name="login">
-        <input ngModel type="text" class="form-control" name="mdp">
-        <button (click)="submitHandler(f)">Submit</button>
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="submitHandler(f)">
+
+        <!-- <input #nid="ngModel" ngModel required minlength="3" pattern="nidhal" name="nidhal" type="text"
+            class="form-control">
+        <div *ngIf="nid.invalid && nid.touched" class="alert alert-danger">
+            <p *ngIf="nid.errors?.['required']">
+                Ce champ est obligatoire
+            </p>
+            <p *ngIf="nid.errors?.['minlength']">
+                La taille minimale est 3
+            </p>
+            <p *ngIf="nid.errors?.['pattern']">
+                Le pattern est nidhal
+            </p>
+        </div> -->
+        <label for="login">Adresse Mail</label>
+        <input #inLogin="ngModel" ngModel required email type="text" class="form-control" id="login" name="login">
+
+        <div *ngIf="inLogin.invalid && inLogin.touched" class="alert alert-danger">La saisie d'une adresse mail est
+            obligatoire</div>
+
+        <label for="pwd">Mot de passe</label>
+        <input ngModel minlength="5" type="text" class="form-control" id="pwd" name="mdp">
+
+        <!-- <label for="section">Section</label>
+        <select [ngModel]="defaultSection" name="section" id="section" class="form-control">
+            <option value=""></option>
+            <option value="dmwm">Mobile et Web</option>
+            <option value="gl">Génie Logiciel</option>
+            <option value="dsen">Data science</option>
+        </select>
+
+        <label for="commentaire">Commentaire</label>
+        <textarea class="form-control" [(ngModel)]="comment" name="commentaire" id="commentaire" rows="5"></textarea>
+        {{ comment }} -->
+        <button [disabled]="f.invalid" class="btn btn-info">Se connecter</button>
+        <!-- <button class="btn btn-success" (click)="randomPwd(f)">Random Password</button>
+        <button class="btn btn-danger" (click)="randomPwd2(f)">Random Password 2</button>
+        <button class="btn btn-warning" (click)="ResetForm(f)">Reset</button> -->
+
     </form>
 </div>

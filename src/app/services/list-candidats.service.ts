@@ -17,10 +17,16 @@ export class ListCandidatsService {
   }
 
   addCandidat(newC) {
+    newC.id = this.tabCandidats[this.tabCandidats.length - 1].id + 1;
     this.tabCandidats.push(newC);
   }
 
   getCandidatById(_id) {
     return this.tabCandidats.find((c) => c.id == _id);
+  }
+
+  deleteCandidat(Cand) {
+    let i = this.tabCandidats.indexOf(Cand);
+    this.tabCandidats.splice(i, 1);
   }
 }

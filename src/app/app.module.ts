@@ -30,6 +30,9 @@ import { AddComponent } from './add/add.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpComponent } from './http/http.component';
+import { DMWM_INTERCEPTOR } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -58,9 +61,16 @@ import { LoginComponent } from './login/login.component';
     AddComponent,
     NotFoundComponent,
     LoginComponent,
+    HttpComponent,
   ],
-  imports: [BrowserModule, FormsModule, SubModule, DMWMW_ROUTING],
-  providers: [],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    SubModule,
+    DMWMW_ROUTING,
+    HttpClientModule,
+  ],
+  providers: [DMWM_INTERCEPTOR],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

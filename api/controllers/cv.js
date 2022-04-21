@@ -54,6 +54,7 @@ exports.createPerson = (req, res, next) => {
     //     avatar: avatar
     // });
 
+
     let newP = _.pick(req.body, ['prenom', 'nom', 'age', 'profession', 'avatar']);
     const newPerson = new Personne(newP);
 

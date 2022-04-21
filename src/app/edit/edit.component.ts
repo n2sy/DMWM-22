@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ListCandidatsService } from '../services/list-candidats.service';
 
 @Component({
@@ -11,20 +11,30 @@ export class EditComponent implements OnInit {
   candidatUpdated;
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private candSer: ListCandidatsService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe({
       next: (p) => {
-        this.candidatUpdated = this.candSer.getCandidatById(p.get('id'));
+        this.candSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response) => {
+            this.candidatUpdated = response;
+          },
+        });
       },
     });
   }
 
   editCandidat() {
-    console.log('xxxxxx');
-
-    console.log(this.candidatUpdated);
+    this.candSer.updateCandidatAPI(this.candidatUpdated).subscribe({
+      next: (response) => {
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        console.log('Erreur avec updateCandidat');
+      },
+    });
   }
 }

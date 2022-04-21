@@ -10,7 +10,7 @@ import { ListCandidatsService } from '../services/list-candidats.service';
 })
 export class InfosComponent implements OnInit {
   //id: any;
-  selectedCandidat: Candidat;
+  selectedCandidat;
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -35,15 +35,25 @@ export class InfosComponent implements OnInit {
       next: (p: ParamMap) => {
         //this.id = p.get('id');
         //console.log(this.id);
-        this.selectedCandidat = this.candSer.getCandidatById(p.get('id'));
+        this.candSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response) => {
+            this.selectedCandidat = response;
+          },
+        });
       },
     });
   }
 
   deleteCandidat() {
     if (confirm('Etes-vous sur de vouloir supprimer ce candidat ?')) {
-      this.candSer.deleteCandidat(this.selectedCandidat);
-      this.router.navigateByUrl('/cv');
+      this.candSer.deleteCandidatAPI(this.selectedCandidat['_id']).subscribe({
+        next: (response) => {
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log('erreur avec deleteCandidat');
+        },
+      });
     }
   }
 }

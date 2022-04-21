@@ -14,8 +14,11 @@ app.use((req, res, next) => {
     next();
 })
 
+
+
 app.use('/auth', authRoutes);
 app.use('/cv', cvRoutes);
+
 
 app.use((error, req, res, next) => {
     console.log("-----", error);
@@ -25,7 +28,7 @@ app.use((error, req, res, next) => {
     res.status(status).json({ message: message, data: data }); //data c'est pour la validation
 });
 
-mongoose.connect('mongodb://localhost:27017/laposte22', {
+mongoose.connect('mongodb://localhost:27017/dmwm22', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(result => app.listen(3000, console.log("Server started !")))

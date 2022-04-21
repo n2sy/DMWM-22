@@ -15,13 +15,13 @@
             </p>
         </div> -->
         <label for="login">Adresse Mail</label>
-        <input #inLogin="ngModel" ngModel required email type="text" class="form-control" id="login" name="login">
+        <input #inLogin="ngModel" ngModel required email type="text" class="form-control" id="login" name="email">
 
         <div *ngIf="inLogin.invalid && inLogin.touched" class="alert alert-danger">La saisie d'une adresse mail est
             obligatoire</div>
 
         <label for="pwd">Mot de passe</label>
-        <input ngModel minlength="5" type="text" class="form-control" id="pwd" name="mdp">
+        <input ngModel minlength="5" type="text" class="form-control" id="pwd" name="password">
 
         <!-- <label for="section">Section</label>
         <select [ngModel]="defaultSection" name="section" id="section" class="form-control">

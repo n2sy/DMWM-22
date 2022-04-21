@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +11,21 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
   defaultSection = 'dmwm';
   comment = 'Rien à dire...';
-  constructor() {}
+  constructor(private authSer: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   submitHandler(f) {
-    console.log(f.value);
+    this.authSer.login(f.value).subscribe({
+      next: (response) => {
+        console.log(response);
+        localStorage.setItem('my_token', response['token']);
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        console.log('Erreur avec Login');
+      },
+    });
   }
 
   randomPwd(f: NgForm) {

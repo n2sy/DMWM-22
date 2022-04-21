@@ -17,8 +17,8 @@ import { ListCandidatsService } from '../services/list-candidats.service';
   providers: [FirstService],
 })
 export class CvComponent implements OnInit, AfterViewInit, AfterContentInit {
-  selectedCandidat: Candidat;
-  tabCandidats: Candidat[] = [];
+  selectedCandidat;
+  tabCandidats: Candidat[];
   @ViewChild('inputName', { static: true }) inpName;
   @ContentChild('paragraphe') parag;
 
@@ -34,8 +34,16 @@ export class CvComponent implements OnInit, AfterViewInit, AfterContentInit {
 
   ngOnInit(): void {
     // console.log('ngOnInit');
-    this.firstSer.showMsg();
-    this.tabCandidats = this.listCand.getAllCandidats();
+    //this.firstSer.showMsg();
+    //this.tabCandidats = this.listCand.getAllCandidats();
+    this.listCand.getAllCandidatsAPI().subscribe({
+      next: (response: Candidat[]) => {
+        this.tabCandidats = response;
+      },
+      error: (error) => {
+        console.log('Erreur avec getAllCandidats()');
+      },
+    });
   }
 
   addCandidat() {

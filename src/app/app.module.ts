@@ -33,6 +33,23 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpComponent } from './http/http.component';
 import { DMWM_INTERCEPTOR } from './token.interceptor';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: 'AIzaSyBDDfZzZShRyDiMtYA41lafi7xGYCgDQ4g',
+  authDomain: 'ng-tasks-c6b03.firebaseapp.com',
+  databaseURL: 'https://ng-tasks-c6b03.firebaseio.com',
+  projectId: 'ng-tasks-c6b03',
+  storageBucket: 'ng-tasks-c6b03.appspot.com',
+  messagingSenderId: '577282019785',
+  appId: '1:577282019785:web:db19d822bc874e0b18d818',
+};
+
+// Initialize Firebase
 
 @NgModule({
   declarations: [
@@ -69,6 +86,7 @@ import { DMWM_INTERCEPTOR } from './token.interceptor';
     SubModule,
     DMWMW_ROUTING,
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
   ],
   providers: [DMWM_INTERCEPTOR],
   bootstrap: [AppComponent],

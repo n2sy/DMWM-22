@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +12,23 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
   defaultSection = 'dmwm';
   comment = 'Rien à dire...';
-  constructor(private authSer: AuthService, private router: Router) {}
+  constructor(
+    private authSer: AuthService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.http
+      .post('https://ng-tasks-c6b03.firebaseio.com/Tasks.json', {
+        name: 'nidhal',
+      })
+      .subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+      });
+  }
 
   submitHandler(f) {
     this.authSer.login(f.value).subscribe({
